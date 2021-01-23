@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const KEY = "AIzaSyCr2CfDiUfq1q6n5iC5uIJfGk6RywEHJPE"
+const KEY = process.env.YOUTUBE_API_KEY
 
 const youtube = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3'
@@ -37,6 +37,16 @@ export const fetchRelatedData = async (id) => {
         params: {
             ...params,
             relatedToVideoId: id
+        }
+    })
+}
+
+
+export const fetchSearchData = async (query) => {
+    return await youtube.get('/search', {
+        params: {
+            ...params,
+            q: query
         }
     })
 }
