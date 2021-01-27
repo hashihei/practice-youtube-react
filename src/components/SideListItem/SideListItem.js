@@ -6,7 +6,7 @@ const SideListItem = ({id,src,title}) => {
     return (
         <Link className={Style.item} to={{pathname:'watch', search: `?v=${id}`}}>
             <img src={src} alt={title} />
-            <div className={Style.info}>
+            <div id={id} className={Style.info}>
                 <span>{title}</span>
             </div>
         </Link>

@@ -9,6 +9,7 @@ import VideoGridItem from '../components/VideoGridItem/VideoGridItem'
 const Search = () => {
     const location = useLocation()
     const { globalState, setGlobalState } = useContext(Store)
+
     const setSearchResult = async() => {
         const searchParams = new URLSearchParams(location.search)
         const query = searchParams.get('query')
@@ -24,22 +25,21 @@ const Search = () => {
     useEffect(() => {
         setSearchResult()
     // eslint-disable-next-line
-    },[])
+    },[location.search])
 
     return (
         <Layout>
             <VideoGrid>
                 {
                     globalState.searched ? globalState.searched.map((search) => {
-                        <div>
-                        <VideoGridItem
-                            id={search.id.videoId}
-                            key={search.id.videoId}
-                            src={search.snippet.thumbnails.medium.url}
-                            title={search.snippet.title}
-
-                        />
-                        </div>
+                        return(
+                            <VideoGridItem
+                                id={search.id.videoId}
+                                key={search.id.videoId}
+                                src={search.snippet.thumbnails.medium.url}
+                                title={search.snippet.title}
+                            />
+                        )
                     }): <span>no data</span>
                 }
             </VideoGrid>

@@ -21,7 +21,7 @@ const SideList = () => {
                         )    
                     }else{
                         return (
-                            <div id={related.id.videoId}></div>
+                            <div id={related.id.videoId}>no data</div>
                         )
                     }
                 })
