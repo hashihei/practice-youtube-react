@@ -33,6 +33,7 @@ const FilterItemTags = () => {
         //console.log("deleteTag deleteFilterItem:", deleteFilterItem)
         //console.log("deleteTag newFilterItemTag:", newFilterItemTag)
         //console.log("deleteTag globalState.terms:", globalState.terms)
+        //
     }
 
     useEffect(() => {
